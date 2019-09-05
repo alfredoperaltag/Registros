@@ -20,7 +20,7 @@ public class Registro {
 	private long id_cuenta;
 	
 	@NotNull
-	private long gruopo_empresa_id_empresa;
+	private long grupo_empresa_id_empresa;
 	
 	@NotNull
 	private long contabilidad_tipo_id_tipo;
@@ -64,13 +64,32 @@ public class Registro {
 	
 	public Registro() {}
 
-	public Registro(@NotNull long id_cuenta, @NotNull long gruopo_empresa_id_empresa,
+	public Registro(@NotNull long id_cuenta, @NotNull long grupo_empresa_id_empresa,
 			@NotNull long contabilidad_tipo_id_tipo, @NotNull long creacion_usuario, Date creacion_fecha_hora,
 			int nivel, @NotNull @Size(max = 100) String cuenta, @NotNull @Size(max = 200) String nombre, int detalle,
 			char naturaleza, @NotNull @Size(max = 3) String moneda, int bloqueado, int status) {
 		super();
 		this.id_cuenta = id_cuenta;
-		this.gruopo_empresa_id_empresa = gruopo_empresa_id_empresa;
+		this.grupo_empresa_id_empresa = grupo_empresa_id_empresa;
+		this.contabilidad_tipo_id_tipo = contabilidad_tipo_id_tipo;
+		this.creacion_usuario = creacion_usuario;
+		this.creacion_fecha_hora = creacion_fecha_hora;
+		this.nivel = nivel;
+		this.cuenta = cuenta;
+		this.nombre = nombre;
+		this.detalle = detalle;
+		this.naturaleza = naturaleza;
+		this.moneda = moneda;
+		this.bloqueado = bloqueado;
+		this.status = status;
+	}
+
+	public Registro(@NotNull long grupo_empresa_id_empresa, @NotNull long contabilidad_tipo_id_tipo,
+			@NotNull long creacion_usuario, Date creacion_fecha_hora, int nivel,
+			@NotNull @Size(max = 100) String cuenta, @NotNull @Size(max = 200) String nombre, int detalle,
+			char naturaleza, @NotNull @Size(max = 3) String moneda, int bloqueado, int status) {
+		super();
+		this.grupo_empresa_id_empresa = grupo_empresa_id_empresa;
 		this.contabilidad_tipo_id_tipo = contabilidad_tipo_id_tipo;
 		this.creacion_usuario = creacion_usuario;
 		this.creacion_fecha_hora = creacion_fecha_hora;
@@ -92,12 +111,12 @@ public class Registro {
 		this.id_cuenta = id_cuenta;
 	}
 
-	public long getGruopo_empresa_id_empresa() {
-		return gruopo_empresa_id_empresa;
+	public long getGrupo_empresa_id_empresa() {
+		return grupo_empresa_id_empresa;
 	}
 
-	public void setGruopo_empresa_id_empresa(long gruopo_empresa_id_empresa) {
-		this.gruopo_empresa_id_empresa = gruopo_empresa_id_empresa;
+	public void setGrupo_empresa_id_empresa(long grupo_empresa_id_empresa) {
+		this.grupo_empresa_id_empresa = grupo_empresa_id_empresa;
 	}
 
 	public long getContabilidad_tipo_id_tipo() {
@@ -190,10 +209,12 @@ public class Registro {
 
 	@Override
 	public String toString() {
-		return "Registro [id_cuenta=" + id_cuenta + ", gruopo_empresa_id_empresa=" + gruopo_empresa_id_empresa
+		return "Registro [id_cuenta=" + id_cuenta + ", grupo_empresa_id_empresa=" + grupo_empresa_id_empresa
 				+ ", contabilidad_tipo_id_tipo=" + contabilidad_tipo_id_tipo + ", creacion_usuario=" + creacion_usuario
 				+ ", creacion_fecha_hora=" + creacion_fecha_hora + ", nivel=" + nivel + ", cuenta=" + cuenta
 				+ ", nombre=" + nombre + ", detalle=" + detalle + ", naturaleza=" + naturaleza + ", moneda=" + moneda
 				+ ", bloqueado=" + bloqueado + ", status=" + status + "]";
 	}
+
+	
 }
