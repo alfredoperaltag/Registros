@@ -1,5 +1,7 @@
 app.controller('registroCtrl', function ($scope, registroService) {
-	$scope.enviarRegistro = function () {
+	
+	$scope.submitForm = function (esValido) {
+		console.log("a");
         registroService.post().then((respuesta) => {
         	if (respuesta === true) {
                 console.log("true");

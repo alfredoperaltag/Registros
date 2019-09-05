@@ -1,6 +1,12 @@
 <div class="row">
 	<div class="col">
 		<h1>Generador de Registros</h1>
-		<button class="btn btn-info" data-ng-click="enviarRegistro()">Generar</button>
+		<form name="formularioRegistro" data-ng-submit="submitForm(formularioRegistro.$valid)">
+			<div class="form-group">
+    			<label for="exampleInputEmail1">Registro</label>
+    			<input type="text" class="form-control" placeholder="Ingrese el registro">
+  			</div>
+  			<button type="submit" class="btn btn-info">Generar</button>
+		</form>
 	</div>
 </div>
