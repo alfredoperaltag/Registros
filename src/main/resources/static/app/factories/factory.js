@@ -1,13 +1,13 @@
 app.factory("factory", function ($http, $q) {
     return {
-        post: function (url) {
+        post: function (url, data) {
             return $http({
                 url: '/' + url,
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                //data: data
+                data: data
             }).then(
                 (success) => {
                     return success.data;

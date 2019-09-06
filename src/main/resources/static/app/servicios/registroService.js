@@ -1,11 +1,11 @@
 app.service ('registroService', function($q, factory) {
     const SELF = this;
-    // nombre del restController
+
     const PATH = 'registro';
     
-    SELF.post = () => {
+    SELF.post = (registro) => {
         return $q((success, error) => {
-            factory.post(PATH).then(
+            factory.post(PATH, registro).then(
                 (resolve) => {
                     success(resolve)
                 },
@@ -13,7 +13,6 @@ app.service ('registroService', function($q, factory) {
                     error(reject)
                 })
         })
-    }
-    
-    // realizar conttrolador y terminar el REST
+
+}
 })

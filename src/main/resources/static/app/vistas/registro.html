@@ -4,7 +4,7 @@
 		<form name="formularioRegistro" data-ng-submit="submitForm(formularioRegistro.$valid)">
 			<div class="form-group">
     			<label for="exampleInputEmail1">Registro</label>
-    			<input type="text" class="form-control" placeholder="Ingrese el registro">
+    			<input type="text" class="form-control" data-ng-model="registro.cuenta" placeholder="Ingrese el registro">
   			</div>
   			<button type="submit" class="btn btn-info">Generar</button>
 		</form>

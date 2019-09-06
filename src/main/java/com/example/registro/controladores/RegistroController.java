@@ -26,12 +26,12 @@ public class RegistroController {
 	 private RegistroService registroService;
 	
 	@RequestMapping(path ="registro",method = RequestMethod.POST)
-    public @ResponseBody boolean agregarRegistro(){
+    public @ResponseBody boolean agregarRegistro(@RequestBody String registroJSON){
         try{
-            //Registro registro = mapper.readValue(registroJSON, Registro.class);
-            //log.info("Se recibio del formulario: \n"+registro.toString());
+        	Registro registro = mapper.readValue(registroJSON, Registro.class);
+            log.info("Se recibio del formulario: \n"+registro.toString());
 
-            if (registroService.agregarRegistro()){
+            if (registroService.agregarRegistro(registro)){
                 log.info("Se agrego el registro correctamente");
                 return true;
             }

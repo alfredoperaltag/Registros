@@ -1,12 +1,11 @@
 app.controller('registroCtrl', function ($scope, registroService) {
 	
 	$scope.submitForm = function (esValido) {
-		console.log("a");
-        registroService.post().then((respuesta) => {
+        registroService.post($scope.registro).then((respuesta) => {
         	if (respuesta === true) {
-                console.log("true");
+        		 $scope.registro = {};
             } else {
-            	console.log("false");
+            	console.log("error");
             }
         }, (reject) => {
             console.log("Ctrl: ", reject);
