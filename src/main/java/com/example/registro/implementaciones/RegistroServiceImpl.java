@@ -27,20 +27,35 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 		String resultado = "";
 		try{
 			String cuenta = registro.getCuenta();
-			String[] grupos = cuenta.split("-");
-			String[]limites = new String[grupos.length];
-			int[]limiteInt = new int[grupos.length];
+			String[] partes = cuenta.split("-");
+			String[]limites = new String[partes.length];
+			int[]limiteInt = new int[partes.length];
 			
-			for (int i = 0; i < grupos.length; i++) {
+			
+			for (int i = 0; i < partes.length; i++) {
+				int digitos=partes[i].length();
 				limites[i]="";
-				for(int j = 0;j<grupos[i].length();j++) {
+				for(int j = 0;j<digitos;j++) {
+					limites[i] += "9";	
+				}
+				String resultado1 = resultado + "digitos: "+digitos+" limites: "+limites[i];
+				log.info(resultado1);
+				//log.info("digitos: "+digitos+" limites: "+limites[i]);
+			}
+			
+			
+			
+			
+			for (int i = 0; i < partes.length; i++) {
+				limites[i]="";
+				for(int j = 0;j<partes[i].length();j++) {
 					limites[i] += "9";	
 				}
 				limiteInt[i]= Integer.parseInt(limites[i]);
 				if(i!=0) {
 					for(int k=0;k<limiteInt[i]+1;k++) {
 							k0=Integer.toString(k);
-							log.info(k0);
+							//log.info(k0);
 					}
 					resultado=k0;
 				}else {
@@ -50,7 +65,6 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 						
 					}
 				}
-				resultado+=resultado;
 			}
 			
 			return true;
